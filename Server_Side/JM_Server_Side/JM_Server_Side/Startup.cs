@@ -1,6 +1,8 @@
+using JM_Server_Side.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,6 +27,19 @@ namespace JM_Server_Side
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+
+            services.AddDbContext<JM_Job_Context>(jmopt =>  
+                jmopt.UseSqlServer(Configuration.GetConnectionString("JMCon")));
+
+
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy(name:"CorsPolicy",builder => 
+                {
+                    builder.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+                });   
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,6 +49,8 @@ namespace JM_Server_Side
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("CorsPolicy");
 
             app.UseRouting();
 

@@ -7,7 +7,7 @@ function App() {
 
   const [techName,setTechName] = useState('');
   const [activity,setActivity] = useState('');
-  const [idD,setID] = useState('');
+  const [idD,setID] = useState(0);
   const [jobs,setJobs] = useState([]);
   const [showModal,setShowingModal] = useState(false);
   const [ModalMode,setModalMode] = useState('Create');
@@ -15,7 +15,7 @@ function App() {
 
 
   const getJobs = () => {
-    axios.get('http://localhost:3000/jobs')
+    axios.get('http://localhost:22537/api/JM_Job')
     .then(resp => {
         console.log(resp.data);
       setJobs(resp.data);
@@ -57,7 +57,7 @@ function App() {
     switch(ModalMode)
     {
       case 'Create':
-        axios.post('http://localhost:3000/jobs',{
+        axios.post('http://localhost:22537/api/JM_Job',{
           "Technician": techName,
           "Activity": activity
                               })
@@ -70,10 +70,11 @@ function App() {
         })
       break;
       case 'Edit':
-        axios.put(`http://localhost:3000/jobs/${idD}`,
+        axios.put(`http://localhost:22537/api/JM_Job/${idD}`,
           {
             "Technician": techName,
-            "Activity": activity
+            "Activity": activity,
+            "id":1
           }
         )
         .then(resp => {
@@ -85,7 +86,7 @@ function App() {
         });
       break;
       case 'Delete':
-        axios.delete(`http://localhost:3000/jobs/${idD}`)
+        axios.delete(`http://localhost:22537/api/JM_Job/${idD}`)
         .then(resp => {
           console.log(resp.data);
           getJobs();
@@ -194,8 +195,8 @@ function App() {
       <div>
         {jobs.map(job => <div>
           <h1>{job.id}</h1>
-          <h1>Technician Name:</h1><h1>{job.Technician}</h1>
-          <h2>Activity: {job.Activity}</h2><h2>{job.Activity}</h2>
+          <h1>Technician Name:</h1><h1>{job.technician}</h1>
+          <h2>Activity: {job.Activity}</h2><h2>{job.activity}</h2>
           <button onClick={handleJobEdit}>Edit</button>
           <button onClick={handleJobDelete}>Delete</button>
         </div>)}
