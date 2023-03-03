@@ -7,11 +7,11 @@ function App() {
 
   const [techName,setTechName] = useState('');
   const [activity,setActivity] = useState('');
-  const [idD,setID] = useState(0);
+  const [idD,setID] = useState('');
   const [jobs,setJobs] = useState([]);
   const [showModal,setShowingModal] = useState(false);
   const [ModalMode,setModalMode] = useState('Create');
-  
+
 
 
   const getJobs = () => {
@@ -71,11 +71,11 @@ function App() {
       break;
       case 'Edit':
         axios.put(`http://localhost:22537/api/JM_Job/${idD}`,
-          {
-            "Technician": techName,
-            "Activity": activity,
-            "id":1
-          }
+        {
+          "Technician": techName,
+          "Activity": activity,
+          "id":parseInt(idD) 
+        }
         )
         .then(resp => {
           getJobs();
@@ -96,7 +96,7 @@ function App() {
         })
       break;
     }
-    
+
 
     setShowingModal(false);
   }
@@ -123,7 +123,7 @@ function App() {
     console.log(`Activity: ${e.target.parentNode.children[4].innerText}`);
     setTechName(e.target.parentNode.children[2].innerText);
     setActivity(e.target.parentNode.children[4].innerText);
-    
+
     // Bug causing no show on modal fix
     setID(e.target.parentNode.children[0].innerText);
     setModalMode('Edit');
@@ -166,7 +166,7 @@ function App() {
                               <button onClick={handleJobSave}>Yes</button>
                               <button onClick={handleJobCancel}>No</button>
                               </form>
-  
+
   switch(ModalMode)
   {
     case 'Create':
@@ -196,7 +196,7 @@ function App() {
         {jobs.map(job => <div>
           <h1>{job.id}</h1>
           <h1>Technician Name:</h1><h1>{job.technician}</h1>
-          <h2>Activity: {job.Activity}</h2><h2>{job.activity}</h2>
+          <h2>Activity:</h2><h2>{job.activity}</h2>
           <button onClick={handleJobEdit}>Edit</button>
           <button onClick={handleJobDelete}>Delete</button>
         </div>)}

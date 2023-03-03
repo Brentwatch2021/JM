@@ -7,5 +7,7 @@
         public string Technician { get; set; }
 
         public string Activity { get; set; }
+
+        
     }
 }

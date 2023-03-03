@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -36,7 +36,7 @@
     transform: rotate(360deg);
   }
 }
-
+*/
 .FormModal
 {
   background-color: red;
@@ -50,4 +50,4 @@
 .FormModalOff
 {
   display: none;
-}
+} 
