@@ -3,14 +3,16 @@ using JM_Server_Side.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JM_Server_Side.Migrations
 {
     [DbContext(typeof(JM_Job_Context))]
-    partial class JM_Job_ContextModelSnapshot : ModelSnapshot
+    [Migration("20230308093059_Add_All_Sub_Properties_Jobs")]
+    partial class Add_All_Sub_Properties_Jobs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,4 +1,5 @@
 using JM_Server_Side.Models;
+using JM_Server_Side.Models.JM_Job_Sub_Properties_Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +31,9 @@ namespace JM_Server_Side
 
 
             services.AddDbContext<JM_Job_Context>(jmopt =>  
+                jmopt.UseSqlServer(Configuration.GetConnectionString("JMCon")));
+
+            services.AddDbContext<JM_Job_Sub_Properties_Context>(jmopt =>
                 jmopt.UseSqlServer(Configuration.GetConnectionString("JMCon")));
 
 
