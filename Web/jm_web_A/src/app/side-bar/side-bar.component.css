@@ -1,0 +1,13 @@
+:host
+{
+    height: 550px;
+    width: 68px;
+    position: fixed;
+    background-color: #1976d2;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 30px;
+    align-items: center;
+}
