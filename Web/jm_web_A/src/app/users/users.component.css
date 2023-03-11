@@ -1,0 +1,34 @@
+.vertical-list-container
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 68px;
+}
+
+.vertical-list-item
+{
+    border-style: dotted;
+    border: 20px;
+    border-color: black;
+    margin: 15px;
+    height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.vertical-list-item:hover
+{
+    opacity: 0.5;
+    cursor: pointer;
+    background-color: #828283;
+    border: #828283;
+}
+
+.user-profile-avatar
+{
+    height: 150px;
+    width: 250px;
+    border-radius: 25px;
+    
+}

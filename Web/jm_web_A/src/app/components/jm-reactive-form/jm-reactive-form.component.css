@@ -1,0 +1,12 @@
+.JM-Reactive-Form
+{
+    width: 1200px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.JM-Reactive-Form button
+{
+    width: 80px;
+}

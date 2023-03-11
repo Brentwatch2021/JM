@@ -1,0 +1,8 @@
+<div class="JM-Reactive-Form">
+    <button (click)="selectForm()">Create</button>
+    <div *ngIf="isShow">
+        <div [ngSwitch]="route">
+            <app-jm-user-form (handleSave)="handleFormSave()" (handleCancel)="handleFormCancel()" *ngSwitchCase="'users'"></app-jm-user-form>
+        </div>
+    </div>
+</div>

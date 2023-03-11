@@ -1,15 +1,19 @@
 using JM_Server_Side.Models;
 using JM_Server_Side.Models.JM_Job_Sub_Properties_Context;
+using JM_Server_Side.Models.JM_User_Role_Context_Lib;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -36,12 +40,17 @@ namespace JM_Server_Side
             services.AddDbContext<JM_Job_Sub_Properties_Context>(jmopt =>
                 jmopt.UseSqlServer(Configuration.GetConnectionString("JMCon")));
 
+            services.AddDbContext<JM_User_Role_Context>(jmopt => 
+                jmopt.UseSqlServer(Configuration.GetConnectionString("JMCon"))
+                );
+
 
             services.AddCors(opt =>
             {
                 opt.AddPolicy(name:"CorsPolicy",builder => 
                 {
-                    builder.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+                    //builder.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+                    builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
                 });   
             });
         }
@@ -53,6 +62,13 @@ namespace JM_Server_Side
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),@"UserUploadedData")),
+                RequestPath = new PathString("/UserUploadedData")
+            });;
 
             app.UseCors("CorsPolicy");
 

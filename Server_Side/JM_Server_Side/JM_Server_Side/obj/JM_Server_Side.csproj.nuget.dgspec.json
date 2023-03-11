@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Backup\\Job Manager Full Stack Application Source\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\JM_Server_Side.csproj": {}
+    "C:\\Backup\\Job Manager Full Stack Application Source\\Source\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\JM_Server_Side.csproj": {}
   },
   "projects": {
-    "C:\\Backup\\Job Manager Full Stack Application Source\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\JM_Server_Side.csproj": {
+    "C:\\Backup\\Job Manager Full Stack Application Source\\Source\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\JM_Server_Side.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Backup\\Job Manager Full Stack Application Source\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\JM_Server_Side.csproj",
+        "projectUniqueName": "C:\\Backup\\Job Manager Full Stack Application Source\\Source\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\JM_Server_Side.csproj",
         "projectName": "JM_Server_Side",
-        "projectPath": "C:\\Backup\\Job Manager Full Stack Application Source\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\JM_Server_Side.csproj",
+        "projectPath": "C:\\Backup\\Job Manager Full Stack Application Source\\Source\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\JM_Server_Side.csproj",
         "packagesPath": "C:\\Users\\Brent\\.nuget\\packages\\",
-        "outputPath": "C:\\Backup\\Job Manager Full Stack Application Source\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\obj\\",
+        "outputPath": "C:\\Backup\\Job Manager Full Stack Application Source\\Source\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Brent\\AppData\\Roaming\\NuGet\\NuGet.Config",

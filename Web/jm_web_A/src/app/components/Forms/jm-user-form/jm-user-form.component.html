@@ -1,0 +1,23 @@
+
+
+<form>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" (change)="handleNameChange($event)" name="name">
+    </div>
+    <div>
+        <label for="lastname">Last Name:</label>
+        <input type="text" (change)="handleLastNameChange($event)" name="lastname">
+    </div>
+    <div>
+        <label for="Email">Email:</label>
+        <input type="email" (change)="handleEmailChange($event)" name="Email">
+    </div>
+    <div>
+        <label for="myProfilePhoto">Profile Photo:</label>
+        <input type="file" (change)="handleFileInput($event)" name="myProfilePhoto">
+    </div>
+    <button (click)="handleUserCancel()">Cancel</button>
+    <button (click)="handleUserSave()">Save</button>
+</form>
+

@@ -1,1 +1,15 @@
-<p>users works!</p>
+<p>Users</p>
+
+<app-jm-reactive-form></app-jm-reactive-form>
+
+<div class="vertical-list-container">
+    <div *ngFor="let jmuser of jmUsers">
+        <div class="vertical-list-item">
+           <h1>{{ jmuser.name + " " + jmuser.lastName }}</h1>  
+           <h2>Email: {{ jmuser.email }}</h2>
+           <img class="user-profile-avatar" [src]="'http://localhost:22537/' + jmuser.profilePhotoURL" alt="">
+           <button>Edit</button>
+           <button>Remove</button>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +15,8 @@ import { ToolsComponent } from './tools/tools.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { UsersComponent } from './users/users.component';
 import { CurrentUserSettingsComponent } from './current-user-settings/current-user-settings.component';
+import { JMReactiveFormComponent } from './components/jm-reactive-form/jm-reactive-form.component';
+import { JmUserFormComponent } from './components/Forms/jm-user-form/jm-user-form.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +29,14 @@ import { CurrentUserSettingsComponent } from './current-user-settings/current-us
     ToolsComponent,
     VehiclesComponent,
     UsersComponent,
-    CurrentUserSettingsComponent
+    CurrentUserSettingsComponent,
+    JMReactiveFormComponent,
+    JmUserFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', component:HomeDashboardComponent },
       { path: 'jobs', component:JobsComponent },
