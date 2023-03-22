@@ -1,8 +1,10 @@
 <div class="JM-Reactive-Form">
-    <button (click)="selectForm()">Create</button>
-    <div *ngIf="isShow">
-        <div [ngSwitch]="route">
-            <app-jm-user-form (handleSave)="handleFormSave()" (handleCancel)="handleFormCancel()" *ngSwitchCase="'users'"></app-jm-user-form>
-        </div>
+    <button (click)="selectForm()">{{ itemToEdit ? 'Edit' : 'Create'}}</button>
+    <!-- A switch for all the different form types User, Tools , Jobs Ect -->
+    <div [ngSwitch]="route">
+        <app-jm-user-form [isUserShow]="isShow" (handleSave)="handleFormSave()" [userToEdit]="itemToEdit" (handleCancel)="handleFormCancel()" *ngSwitchCase="'users'"></app-jm-user-form>
+        <app-jm-client-form [clientToEdit]="itemToEdit" (handleClientFormSave)="handleFormSave()" (handleClientFormCancel)="handleFormCancel()" [isClientShow]="isShow" *ngSwitchCase="'clients'"></app-jm-client-form>
+        <app-jm-tools-form [jmToolToEdit]="itemToEdit" (handleSave)="handleFormSave()" (handleCancel)="handleFormCancel()"  [isToolShow]="isShow" *ngSwitchCase="'tools'"></app-jm-tools-form>
+        <app-jm-job-form [jmJobToEdit]="itemToEdit" (handleSave)="handleFormSave()" (handleCancel)="handleFormCancel()" [isJobShow]="isShow" *ngSwitchCase="'jobs'"></app-jm-job-form>
     </div>
 </div>

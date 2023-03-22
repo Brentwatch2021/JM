@@ -1,1 +1,8 @@
-<p>tools works!</p>
+<p>Tools</p>
+<app-jm-reactive-form (handleSectionPageRefresh)="PageRefresh()"></app-jm-reactive-form>
+
+<div *ngFor="let tool of tools">
+    <a [routerLink]="['/tools', tool.id]">
+        <h1>Name: {{tool.name}}</h1>
+    </a>
+</div>

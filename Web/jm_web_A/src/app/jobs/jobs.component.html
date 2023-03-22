@@ -1,1 +1,10 @@
-<p>jobs works!</p>
+<p>Jobs</p>
+<app-jm-reactive-form ></app-jm-reactive-form>
+
+<div *ngIf="jmJobs">
+    <div *ngFor="let job of jmJobs">
+        <a [routerLink]="['/jobs', job.id]">
+            <h1>Activity: {{job.activity}}</h1>
+        </a>
+    </div>
+</div>

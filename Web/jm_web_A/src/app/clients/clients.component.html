@@ -1,1 +1,13 @@
-<p>clients works!</p>
+<p>Clients</p>
+
+<app-jm-reactive-form (handleSectionPageRefresh)="handlePageRefresh()"></app-jm-reactive-form>
+
+
+<div class="vertical-list-container">
+    <div *ngFor="let client of jmClients">
+        <a [routerLink]="['/clients', client.id]">
+            <p>{{client.name}}</p>
+            <p>{{client.location}}</p>
+        </a>
+    </div>
+</div>

@@ -45,6 +45,7 @@ namespace JM_Server_Side
                 );
 
 
+
             services.AddCors(opt =>
             {
                 opt.AddPolicy(name:"CorsPolicy",builder => 

@@ -1,0 +1,19 @@
+<div *ngIf="isToolShow">
+    <div>
+        <label for="toolsName">Name</label>
+        <input type="text" name="toolsName" (change)="handleToolNameChange($event)" [value]="jmToolToEdit ? jmToolToEdit.name : ''">
+    </div>
+    <div>
+        <label for="ToolAssignedTo">Assigned To</label>
+        <select name="JMUsers" id="JMUsers" (change)="handleSelectAssignedTo($event)">
+            <option [value]="0">None</option>
+            <option *ngFor="let jmuser of JMUsers" [value]="jmuser.id">
+                {{jmuser.name}} {{jmuser.lastName}}
+            </option>
+        </select>
+    </div>
+    <button (click)="handleToolSave()">Save</button>
+    <button (click)="handleToolCancel()">Cancel</button>
+</div>
+
+<button *ngIf="jmToolToEdit" (click)="handleToolDelete()">Delete</button>

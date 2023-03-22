@@ -17,6 +17,13 @@ import { UsersComponent } from './users/users.component';
 import { CurrentUserSettingsComponent } from './current-user-settings/current-user-settings.component';
 import { JMReactiveFormComponent } from './components/jm-reactive-form/jm-reactive-form.component';
 import { JmUserFormComponent } from './components/Forms/jm-user-form/jm-user-form.component';
+import { UserDetailsComponent } from './users/user-details/user-details.component';
+import { JmClientFormComponent } from './components/Forms/jm-client-form/jm-client-form.component';
+import { ClientDetailsComponent } from './clients/client-details/client-details.component';
+import { JmToolsFormComponent } from './components/Forms/jm-tools-form/jm-tools-form.component';
+import { ToolsDetailsComponent } from './tools/tools-details/tools-details.component';
+import { JmJobFormComponent } from './components/Forms/jm-job-form/jm-job-form.component';
+import { JobDetailsComponent } from './jobs/job-details/job-details.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +38,14 @@ import { JmUserFormComponent } from './components/Forms/jm-user-form/jm-user-for
     UsersComponent,
     CurrentUserSettingsComponent,
     JMReactiveFormComponent,
-    JmUserFormComponent
+    JmUserFormComponent,
+    UserDetailsComponent,
+    JmClientFormComponent,
+    ClientDetailsComponent,
+    JmToolsFormComponent,
+    ToolsDetailsComponent,
+    JmJobFormComponent,
+    JobDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +54,14 @@ import { JmUserFormComponent } from './components/Forms/jm-user-form/jm-user-for
     RouterModule.forRoot([
       { path: '', component:HomeDashboardComponent },
       { path: 'jobs', component:JobsComponent },
+      { path: 'jobs/:jobId', component:JobDetailsComponent },
       { path: 'clients', component:ClientsComponent },
+      { path: 'clients/:clientId', component:ClientDetailsComponent },
       { path: 'tools', component:ToolsComponent },
+      { path: 'tools/:toolId', component:ToolsDetailsComponent },
       { path: 'vehicles', component:VehiclesComponent },
       { path: 'users', component:UsersComponent },
+      { path: 'users/:userId', component:UserDetailsComponent },
       { path: 'current_user_settings', component:CurrentUserSettingsComponent },
     ])
   ],

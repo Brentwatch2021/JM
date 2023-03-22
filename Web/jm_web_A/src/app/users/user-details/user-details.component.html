@@ -1,0 +1,14 @@
+<p *ngIf="jmUserDetails">First Name {{ jmUserDetails.name }} Surname {{ jmUserDetails.lastName }}</p>
+<img src="" alt="">
+
+
+
+
+
+
+<app-jm-reactive-form *ngIf="jmUserDetails" [itemToEdit]="jmUserDetails"></app-jm-reactive-form>
+
+
+
+<button (click)="GoBack()">Back</button>
+

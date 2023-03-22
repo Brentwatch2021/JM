@@ -1,0 +1,14 @@
+<form *ngIf="isClientShow">
+    <div>
+        <label for="clientName">Client Name</label>
+        <input type="text" (change)="handleClientNameChange($event)" name="clientName" [value]="clientToEdit ? clientToEdit.name : ''">
+    </div>
+    <div>
+        <label for="clientLocation">Client Location</label>
+        <input type="text" (change)="handleClientLocationChange($event)" name="clientLocation" [value]="clientToEdit ? clientToEdit.location : ''">
+    </div>
+    <button (click)="handleClientSave()">Save</button>
+    <button (click)="handleClientCancel()">Cancel</button>
+</form>
+
+<button *ngIf="clientToEdit" (click)="HandleClientDelete()">Delete</button>

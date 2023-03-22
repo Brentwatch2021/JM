@@ -1,0 +1,7 @@
+<p>Job</p>
+
+<h1 *ngIf="jm_Job">
+    The jobs activity that will be conducted is: {{ jm_Job.activity}}
+</h1>
+
+<app-jm-reactive-form *ngIf="jm_Job" [itemToEdit]="jm_Job"></app-jm-reactive-form>

@@ -1,0 +1,12 @@
+<div *ngIf="isJobShow">
+        <div>
+            <label for="jobActivity">Activity: </label>
+            <input type="text" name="jobActivity" (change)="handlejobActivityChange($event)" [value]="jmJobToEdit ? jmJobToEdit.activity : ''">
+        </div>
+    <button (click)="handleJobSave()">Save</button>
+    <button (click)="handleJobCancel()">Cancel</button>
+</div>
+
+<div *ngIf="jmJobToEdit">
+    <button (click)="HandleJobRemove()" >Delete</button>
+</div>

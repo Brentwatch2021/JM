@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { UserServiceService } from 'src/services/user-service.service';
 import { JM_User } from 'src/services/User';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-jm-user-form',
@@ -15,10 +16,17 @@ export class JmUserFormComponent {
 
   userService!:UserServiceService;
 
+  _locationService!:Location;
+
   user:JM_User = new JM_User();
 
-  constructor(private userServiceService:UserServiceService) {
+  @Input() userToEdit:any;
+
+  @Input() isUserShow!:boolean;
+
+  constructor(private userServiceService:UserServiceService, private locationService:Location) {
     this.userService = userServiceService;
+    this._locationService = locationService;
   }
 
   
@@ -44,25 +52,87 @@ export class JmUserFormComponent {
     this.user.ProfilePhoto = e?.target?.files[0]; 
   }
 
-  handleUserSave()
+  handleUserSave(event:any)
   {
+    //event.preventDefault();
     // execute concrete implmentation
     //alert("Name: " + this.user.Name + " Last Name" + this.user.LastName + "Email: " + this.user.Email); 
-    if(this.user)
+    if(this.user && !this.userToEdit)
     {
+      // Causing the ford data to return to the URL page
+      //  this.userService.SaveUser(this.user).subscribe(
+      //   {
+      //     next:(jmUser:any) => {
+      //       alert(`User ${jmUser.name} ${jmUser.lastName} was successfully created`);
+      //       // Start the finish process 
+      //       //this.handleSave.emit();
+      //     },
+      //     error:(e:any) => {
+      //       // Logger service
+      //       alert(e);
+      //     }
+          
+      //   }
+      // );
+
       this.userService.SaveUser(this.user);
+
+      this.user = new JM_User();
+
+
+      // handle the cancel form event
+      this.handleSave.emit();
+    }
+
+    if(this.userToEdit)
+    {
+      this.userService.EditUser(this.user,this.userToEdit);
     }
     
+    // Moving this into the next or the error states inside the observables above
     // execute parent Cancel Implementation
-    this.handleSave.emit();
+    //this.handleSave.emit();
   }
 
   handleUserCancel()
   {
     // execute concrete implmentation
-
+    this.user = new JM_User();
     // execute parent Cancel Implementation
     this.handleCancel.emit();
+  }
+
+  handleUserDelete()
+  {
+    if(confirm(`Are you sure you would like to Delete User: ${this.userToEdit.name} ${this.userToEdit.lastName}`))
+    {
+      if(this.userToEdit)
+      {
+        this.userService.DeleteUser(this.userToEdit.id).subscribe(
+          {
+            next: (jmuser:any) => {
+              alert(`User ${jmuser.name} ${jmuser.lastName} was deleted successfully`);
+              // location service to navigate back
+              this._locationService.back();
+            },
+            error: (e:any) => 
+            {
+              alert(`Unable to delete user: ${this.userToEdit.name} ${this.userToEdit.lastName}`);
+              // Logger service log errors
+            }
+          }
+        );
+      }
+    }
+    
+
+    // Yes wait for reponse from server after that return to main users list
+
+    //alert("im gna delete when flow is right");
+    // if(this.itemToEdit)
+    // {
+    //   this.userService.DeleteUser(this.itemToEdit.id);
+    // }
   }
 
 

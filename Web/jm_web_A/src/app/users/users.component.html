@@ -1,15 +1,20 @@
 <p>Users</p>
 
-<app-jm-reactive-form></app-jm-reactive-form>
+<app-jm-reactive-form (handleSectionPageRefresh)="PageRefresh()"></app-jm-reactive-form>
 
 <div class="vertical-list-container">
     <div *ngFor="let jmuser of jmUsers">
-        <div class="vertical-list-item">
-           <h1>{{ jmuser.name + " " + jmuser.lastName }}</h1>  
-           <h2>Email: {{ jmuser.email }}</h2>
-           <img class="user-profile-avatar" [src]="'http://localhost:22537/' + jmuser.profilePhotoURL" alt="">
-           <button>Edit</button>
-           <button>Remove</button>
-        </div>
+        <!-- <a [routerLink]="['/users/']" [queryParams]="{userId:jmuser.id}"> -->
+            <a [routerLink]="['/users', jmuser.id]">
+            <div class="vertical-list-item">
+                <p style="display: none;">{{jmuser.id}}</p>
+                <h1>{{ jmuser.name + " " + jmuser.lastName }}</h1>  
+                <h2>Email: {{ jmuser.email }}</h2>
+                <img class="user-profile-avatar" [src]="'http://localhost:22537/' + jmuser.profilePhotoURL" alt="">
+                <!-- <button (click)="handleItemEdit()">Edit</button> -->
+                <!-- <button>Remove</button> -->
+             </div>
+        </a>
+        <!-- <div *ngIf="isItemEdit">The editable form</div> -->
     </div>
 </div>

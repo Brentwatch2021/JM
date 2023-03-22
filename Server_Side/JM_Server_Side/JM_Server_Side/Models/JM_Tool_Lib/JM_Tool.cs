@@ -14,6 +14,7 @@ namespace JM_Server_Side.Models.JM_Tool_Lib
         // History might implement later
         public string History { get; set; }
 
+        // ID of the user the tool is assigned to 
         public int AssignedTo { get; set; }
 
         public string Tool_Image_Path { get; set; }
