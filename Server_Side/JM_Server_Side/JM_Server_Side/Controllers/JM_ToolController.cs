@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using JM_Server_Side.Models.JM_Job_Sub_Properties_Context;
 using JM_Server_Side.Models.JM_Tool_Lib;
+using System.IO;
 
 namespace JM_Server_Side.Controllers
 {
@@ -85,6 +86,19 @@ namespace JM_Server_Side.Controllers
 
             return CreatedAtAction("GetJM_Tool", new { id = jM_Tool.Id }, jM_Tool);
         }
+
+        [HttpPost("UploadImageOfTool")]
+        public void UploadImageOfTool(IFormFile imageOfTool)
+        {
+            // EXTREMELY BAD PRACTISE
+            string filenameAndPath = "UserUploadedData/Tools/" + imageOfTool.FileName;
+            var toolImageStream = new FileStream(filenameAndPath, FileMode.Create);
+            // Unable to use async here as when this api method goes out of scope it loses the file
+            // need to improve
+            imageOfTool.CopyTo(toolImageStream);
+            
+        }
+
 
         // DELETE: api/JM_Tool/5
         [HttpDelete("{id}")]

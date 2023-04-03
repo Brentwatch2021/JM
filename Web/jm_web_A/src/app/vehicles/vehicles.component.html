@@ -1,1 +1,9 @@
-<p>vehicles works!</p>
+<p>Vehicles</p>
+
+<app-jm-reactive-form></app-jm-reactive-form>
+
+<div *ngFor="let JM_Vehicle of jmVehicles">
+    <a [routerLink]="['/vehicles', JM_Vehicle.id]">
+        <p>{{ JM_Vehicle.name }}</p>
+    </a>
+</div>

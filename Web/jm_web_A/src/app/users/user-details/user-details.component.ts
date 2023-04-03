@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { JM_User } from 'src/services/User';
+import { JM_User } from 'src/services/JM_User';
 import { UserServiceService } from 'src/services/user-service.service';
 
 @Component({

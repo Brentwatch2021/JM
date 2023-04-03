@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RootAPILinks } from '../RootAPILinks/RootAPILinks';
 import { JM_Tool } from './JM_Tool';
 
 @Injectable({
@@ -8,35 +9,43 @@ import { JM_Tool } from './JM_Tool';
 })
 export class ToolsAPIService {
 
-  constructor(private http:HttpClient) { }
-
-  apiBaseURL:string = "http://localhost:22537/"
+  constructor(private http:HttpClient,private rootAPILinks:RootAPILinks) { }
 
   GetJMTools():Observable<JM_Tool>
   {
-    return this.http.get<JM_Tool>(`${this.apiBaseURL}api/JM_Tool`);
+    return this.http.get<JM_Tool>(`${this.rootAPILinks.rootAPI}/api/JM_Tool`);
   }
 
   GetJMTool(id:Number):Observable<JM_Tool>
   {
-    return this.http.get<JM_Tool>(`${this.apiBaseURL}api/JM_Tool/${id}`);
+    return this.http.get<JM_Tool>(`${this.rootAPILinks.rootAPI}/api/JM_Tool/${id}`);
   }
 
   EditJMTool(jmToolToEdit:any)
   {
-    this.http.put(`${this.apiBaseURL}api/JM_Tool/${jmToolToEdit.id}`,jmToolToEdit).subscribe((resp:any) => alert("Tool Updated"));
+    this.http.put(`${this.rootAPILinks.rootAPI}/api/JM_Tool/${jmToolToEdit.id}`,jmToolToEdit).subscribe((resp:any) => alert("Tool Updated"));
   }
 
   DeleteJMTool(id:Number):Observable<JM_Tool>
   {
-    return this.http.delete<JM_Tool>(`${this.apiBaseURL}api/JM_Tool/${id}`);
+    return this.http.delete<JM_Tool>(`${this.rootAPILinks.rootAPI}/api/JM_Tool/${id}`);
   }
 
   SaveJMTool(jmTool:JM_Tool):Observable<JM_Tool>
   {
     try 
     {
-      return this.http.post<JM_Tool>(`${this.apiBaseURL}api/JM_Tool`,jmTool);
+      if(jmTool.Image_Of_Tool)
+      {
+        jmTool.tool_Image_MIME_Type = jmTool?.Image_Of_Tool?.type;   
+        jmTool.Tool_Image_Path = `UserUploadedData/Tools/${jmTool.Image_Of_Tool.name}`;
+        const formData: FormData = new FormData();
+        formData.append('imageOfTool',jmTool.Image_Of_Tool); 
+        this.http.post(`${this.rootAPILinks.rootAPI}/api/JM_Tool/UploadImageOfTool`, formData).subscribe(resp => alert("File Uploaded"));
+        jmTool.Image_Of_Tool = undefined;
+      }
+
+      return this.http.post<JM_Tool>(`${this.rootAPILinks.rootAPI}/api/JM_Tool`,jmTool);
     }
     catch(e:any)
     {

@@ -8,7 +8,9 @@ namespace JM_Server_Side.Models.JM_Vehicle_Lib
         public int Id { get; set; }
 
         public string Name { get; set; }
-        
+
+        public string RegNumber { get; set; }
+
         public string Kms { get; set; }
 
         // Vehicle History something we can implement later
@@ -19,6 +21,8 @@ namespace JM_Server_Side.Models.JM_Vehicle_Lib
         public int Assigned_To { get; set; }
 
         public string Vehicle_Image_Path { get; set; }
+
+        public string Vehicle_Image_MIME_Type { get; set; }
 
         [NotMapped]
         public IFormFile Vehicle_Photo { get; set; }

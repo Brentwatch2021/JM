@@ -17,6 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="UserUploadedData\Vehicles\" />
+    <Folder Include="UserUploadedData\Tools\" />
     <Folder Include="UserUploadedData\User\ProfilePhotos\" />
   </ItemGroup>
 

@@ -6,5 +6,6 @@
         <app-jm-client-form [clientToEdit]="itemToEdit" (handleClientFormSave)="handleFormSave()" (handleClientFormCancel)="handleFormCancel()" [isClientShow]="isShow" *ngSwitchCase="'clients'"></app-jm-client-form>
         <app-jm-tools-form [jmToolToEdit]="itemToEdit" (handleSave)="handleFormSave()" (handleCancel)="handleFormCancel()"  [isToolShow]="isShow" *ngSwitchCase="'tools'"></app-jm-tools-form>
         <app-jm-job-form [jmJobToEdit]="itemToEdit" (handleSave)="handleFormSave()" (handleCancel)="handleFormCancel()" [isJobShow]="isShow" *ngSwitchCase="'jobs'"></app-jm-job-form>
+        <app-jm-vehicle-form [vehicleToEdit]="itemToEdit" (handleSave)="handleFormSave()" (handleCancel)="handleFormCancel()" [isVehicleShow]="isShow" *ngSwitchCase="'vehicles'" />
     </div>
 </div>

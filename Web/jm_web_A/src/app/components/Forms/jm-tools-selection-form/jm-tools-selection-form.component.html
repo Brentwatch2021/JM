@@ -1,0 +1,16 @@
+<div *ngIf="isSelectShow">
+    
+    <div>
+        <div *ngFor="let tool of jmSelectedTools">
+            <label>
+                <input type="checkbox" [(ngModel)]="tool.selected" >
+            </label>
+            <!-- <img [src]="'http://locahost:22537/' + tool.tool_Image_Path" [alt]="tool.name"> -->
+            <h1>{{tool.name}}</h1>
+        </div>
+    </div>
+    
+
+    <button (click)="handleSelectionCancel()">Cancel</button>
+    <button (click)="handleSelectionSave()" >Save</button>
+</div>

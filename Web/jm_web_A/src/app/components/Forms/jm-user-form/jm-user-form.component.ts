@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { UserServiceService } from 'src/services/user-service.service';
-import { JM_User } from 'src/services/User';
+import { JM_User } from 'src/services/JM_User';
 import { Location } from '@angular/common';
 
 @Component({
@@ -29,27 +29,57 @@ export class JmUserFormComponent {
     this._locationService = locationService;
   }
 
-  
-
   // These are the form input events
   handleNameChange(e:any)
   {
-    this.user.Name = e?.target?.value;
+    const nameSelected = e?.target?.value;
+    if(!this.userToEdit)
+    {
+      this.user.name = nameSelected;
+    }
+    else if(nameSelected)
+    {
+      this.userToEdit.name = nameSelected;
+    }
   }
 
   handleLastNameChange(e:any)
   {
-    this.user.LastName = e?.target?.value;
+    const lastNameSelected = e?.target?.value;
+    if(!this.userToEdit)
+    {
+      this.user.lastName = lastNameSelected;
+    }
+    else if(lastNameSelected)
+    {
+      this.userToEdit.lastName = lastNameSelected;
+    }
   }
 
   handleEmailChange(e:any)
   {
-    this.user.Email = e.target.value;
+    const emailSelected = e?.target?.value;
+    if(!this.userToEdit && emailSelected)
+    {
+      this.user.Email = emailSelected;
+    }
+    else if(emailSelected)
+    {
+      this.userToEdit.Email = emailSelected;
+    }
   }
 
   handleFileInput(e: any)
   {
-    this.user.ProfilePhoto = e?.target?.files[0]; 
+    const selectedProfilePhoto = e?.target?.files[0]; 
+    if(!this.userToEdit && selectedProfilePhoto) 
+    {
+      this.user.ProfilePhoto = selectedProfilePhoto;
+    }
+    else if(selectedProfilePhoto)
+    {
+      this.userToEdit.ProfilePhoto = selectedProfilePhoto;
+    }
   }
 
   handleUserSave(event:any)

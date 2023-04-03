@@ -81,20 +81,43 @@ export class JmToolsFormComponent implements OnInit {
 
   handleToolNameChange(e:any)
   {
-    if(!this.jmToolToEdit)
+    const editedName = e?.target?.value;
+    if(!this.jmToolToEdit && editedName)
     {
-      this.jmTool.Name =  e?.target?.value;
+      this.jmTool.Name =  editedName;
     }
-    else
+    else if(editedName)
     {
-      this.jmToolToEdit.name = e?.target?.value;
+      this.jmToolToEdit.name = editedName;
     }
     
   }
 
   handleSelectAssignedTo(e:any)
   {
-    this.jmTool.AssignedTo = Number(e?.target?.value);
+    const selectedAssignedToID = Number(e?.target?.value);
+    if(!this.jmToolToEdit && selectedAssignedToID > 0)
+    {
+      this.jmTool.AssignedTo = selectedAssignedToID;
+    }
+    else if(selectedAssignedToID > 0)
+    {
+      this.jmToolToEdit.AssignedTo = selectedAssignedToID;
+    }
+
+  }
+
+  handleFileUpload(e:any)
+  {
+    const imageOfToolToUpload = e?.target?.files[0];
+    if(!this.jmToolToEdit && imageOfToolToUpload)
+    {
+      this.jmTool.Image_Of_Tool = imageOfToolToUpload;
+    }
+    else if(imageOfToolToUpload)
+    {
+      this.jmToolToEdit.Image_Of_Tool = imageOfToolToUpload;
+    }
   }
 
 

@@ -24,6 +24,11 @@ import { JmToolsFormComponent } from './components/Forms/jm-tools-form/jm-tools-
 import { ToolsDetailsComponent } from './tools/tools-details/tools-details.component';
 import { JmJobFormComponent } from './components/Forms/jm-job-form/jm-job-form.component';
 import { JobDetailsComponent } from './jobs/job-details/job-details.component';
+import { JmVehicleFormComponent } from './components/Forms/jm-vehicle-form/jm-vehicle-form.component';
+import { VehicleDetailsComponent } from './vehicles/vehicle-details/vehicle-details.component';
+import { JmToolsSelectionFormComponent } from './components/Forms/jm-tools-selection-form/jm-tools-selection-form.component';
+import { FormsModule } from '@angular/forms';
+import { JmJobTasksFormComponent } from './components/Forms/jm-job-tasks-form/jm-job-tasks-form.component';
 
 @NgModule({
   declarations: [
@@ -45,11 +50,16 @@ import { JobDetailsComponent } from './jobs/job-details/job-details.component';
     JmToolsFormComponent,
     ToolsDetailsComponent,
     JmJobFormComponent,
-    JobDetailsComponent
+    JobDetailsComponent,
+    JmVehicleFormComponent,
+    VehicleDetailsComponent,
+    JmToolsSelectionFormComponent,
+    JmJobTasksFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component:HomeDashboardComponent },
@@ -60,6 +70,7 @@ import { JobDetailsComponent } from './jobs/job-details/job-details.component';
       { path: 'tools', component:ToolsComponent },
       { path: 'tools/:toolId', component:ToolsDetailsComponent },
       { path: 'vehicles', component:VehiclesComponent },
+      { path: 'vehicles/:vehicleId', component:VehicleDetailsComponent },
       { path: 'users', component:UsersComponent },
       { path: 'users/:userId', component:UserDetailsComponent },
       { path: 'current_user_settings', component:CurrentUserSettingsComponent },

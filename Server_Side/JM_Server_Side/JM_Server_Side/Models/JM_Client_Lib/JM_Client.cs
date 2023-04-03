@@ -22,6 +22,8 @@ namespace JM_Server_Side.Models.JM_Client_Lib
 
         public string Client_Logo_Path { get; set; }
 
+        public string Client_Logo_MIME_Type { get; set; }
+
         [NotMapped]
         public IFormFile ClientLogo { get; set; }
     }

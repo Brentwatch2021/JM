@@ -25,6 +25,9 @@ namespace JM_Server_Side.Migrations.JM_Job_Sub_Properties_
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Client_Logo_MIME_Type")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Client_Logo_Path")
                         .HasColumnType("nvarchar(max)");
 
@@ -85,6 +88,9 @@ namespace JM_Server_Side.Migrations.JM_Job_Sub_Properties_
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Tool_Image_MIME_Type")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Tool_Image_Path")
                         .HasColumnType("nvarchar(max)");
 
@@ -110,6 +116,12 @@ namespace JM_Server_Side.Migrations.JM_Job_Sub_Properties_
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RegNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Vehicle_Image_MIME_Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Vehicle_Image_Path")

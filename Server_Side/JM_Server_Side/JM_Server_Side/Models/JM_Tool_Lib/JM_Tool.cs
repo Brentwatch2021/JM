@@ -19,6 +19,8 @@ namespace JM_Server_Side.Models.JM_Tool_Lib
 
         public string Tool_Image_Path { get; set; }
 
+        public string Tool_Image_MIME_Type { get; set; }
+
         [NotMapped]
         public IFormFile Image_Of_Tool { get; set; }
     }

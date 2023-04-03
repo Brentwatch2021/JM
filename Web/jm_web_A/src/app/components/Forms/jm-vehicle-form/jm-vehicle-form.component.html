@@ -1,0 +1,44 @@
+<form *ngIf="isVehicleShow">
+    <div>
+        <label for="Name">Name:</label>
+        <input type="text" name="Name" 
+        (change)="handleVehicleNameChange($event)"
+        [value]="vehicleToEdit ? vehicleToEdit.name : ''" >
+    </div>
+    <div>
+        <label for="regNumber">Registraton Number: </label>
+        <input type="text" name="regNumber" 
+        (change)="handleVehicleRegChange($event)"
+        [value]="vehicleToEdit ? vehicleToEdit.regNumber : ''"
+        >
+    </div>
+    <div>
+        <label for="kms">km's</label>
+        <input type="text" name="kms"
+        (change)="handleVehicleKms($event)"
+        [value]="vehicleToEdit ? vehicleToEdit.kms : ''"
+        >
+    </div>
+    <div>
+        <label for="assignedTo">Assigned To: </label>
+        <select name="assignedTo" id="assignedTo"
+        (change)="handleVehicleAssignedTo($event)">
+        <option value="0">None</option>
+        <option *ngFor="let user of jmUsers" [value]="user.id">
+            {{user.name}} {{ user.lastName }}
+        </option>
+        </select>
+    </div>
+
+    <div>
+        <label for="vehicleImageUpload">Photo of Vehicle:</label>
+        <input type="file" name="vehicleImageUpload"
+            (change)="handleVehicleImageUpload($event)"
+        >
+    </div>
+
+    <button (click)="handleVehicleCancel()">Cancel</button>
+    <button (click)="handleVehicleSave()" >Save</button>
+</form>
+
+<button *ngIf="vehicleToEdit" (click)="handleVehicleDelete()" >Delete</button>

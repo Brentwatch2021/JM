@@ -1,7 +1,8 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { JM_User } from './User';
+import { JM_User } from './JM_User';
 import { Observable } from 'rxjs';
+import { RootAPILinks } from './RootAPILinks/RootAPILinks';
 
 
 @Injectable({
@@ -9,28 +10,22 @@ import { Observable } from 'rxjs';
 })
 export class UserServiceService {
 
-  constructor(private http: HttpClient) { }
-
-  apiURL:string = 'http://localhost:22537/';
+  constructor(private http: HttpClient,private rootAPILinks:RootAPILinks) { }
 
 
   GetJM_User(id:Number):Observable<JM_User>
   {
     const header = new HttpHeaders().set('Content-type', 'application/json');
-    return this.http.get<JM_User>('http://localhost:22537/api/JM_User/' + id,{headers:header,withCredentials:false});
+    return this.http.get<JM_User>(`${this.rootAPILinks.rootAPI}/api/JM_User/` + id,{headers:header,withCredentials:false});
   }
 
   GetJM_Users():Observable<JM_User>
   // GetJM_Users()
   {
     const header = new HttpHeaders().set('Content-type','application/json');
-    return this.http.get<JM_User>(`http://localhost:22537/api/JM_User`, {headers:header , withCredentials:false});
+    return this.http.get<JM_User>(`${this.rootAPILinks.rootAPI}/api/JM_User`, {headers:header , withCredentials:false});
     // return this.http.get<JM_User>(`http://localhost:22537/api/JM_User`);
   }
-
-
-  
-
 
   // this is causing an issue where the data resides in the url
   //SaveUser(user:JM_User):Observable<JM_User>
@@ -65,7 +60,7 @@ export class UserServiceService {
 
 
       // Run api call here and forget about its creation on the server side
-      this.http.post('http://localhost:22537/api/JM_User/UploadProfilePhoto',formData).subscribe((resp) => console.log("file uploaded"));
+      this.http.post(`${this.rootAPILinks.rootAPI}/api/JM_User/UploadProfilePhoto`,formData).subscribe((resp) => alert("file uploaded"));
 
       user.ProfilePhoto = undefined;
       
@@ -76,7 +71,7 @@ export class UserServiceService {
       //return this.http.post<JM_User>('http://localhost:22537/api/JM_User',userFormData,{ headers : new HttpHeaders() });
       //this.http.post('http://localhost:22537/api/JM_User',user,{ headers : header }).subscribe(() => alert("User Created"));
       //this.http.post('http://localhost:22537/api/JM_User',user,{ headers :header }).subscribe((response) => alert("user created"));
-      this.http.post<JM_User>('http://localhost:22537/api/JM_User',user,{ headers :header }).subscribe((response) => alert("user created"));
+      this.http.post<JM_User>(`${this.rootAPILinks.rootAPI}/api/JM_User`,user,{ headers :header }).subscribe((response) => alert("user created"));
         // {
         //   next:() => {
         //     //alert("User Uploaded");
@@ -113,7 +108,7 @@ export class UserServiceService {
       
     }
 
-    return this.http.put(`http://localhost:22537/api/JM_User/${userToEdit.id}`,userFormEditData, { headers : new HttpHeaders() }).subscribe(() => alert("User updated."));
+    return this.http.put(`${this.rootAPILinks.rootAPI}/api/JM_User/${userToEdit.id}`,userFormEditData, { headers : new HttpHeaders() }).subscribe(() => alert("User updated."));
   }
 
 
@@ -121,7 +116,7 @@ export class UserServiceService {
   {
     if(id !== undefined)
     {
-     return this.http.delete<JM_User>(`http://localhost:22537/api/JM_User/${id}`);
+     return this.http.delete<JM_User>(`${this.rootAPILinks.rootAPI}/api/JM_User/${id}`);
     }
     return new Observable<JM_User>;
   }

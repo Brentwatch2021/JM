@@ -1,10 +1,11 @@
 export class JM_Tool
 {
-    Id!:Number;
-    Name!:string;
-    CheckedInOutStatus!:boolean;
-    History!:string;
-    AssignedTo!:Number;
-    Tool_Image_Path!:string;
-    Image_Of_Tool!:File;
+    Id:Number = 0;
+    Name:string = "";
+    CheckedInOutStatus:boolean = false;
+    History:string = "";
+    AssignedTo:Number = 0;
+    Tool_Image_Path:string = "";
+    tool_Image_MIME_Type:string = "";
+    Image_Of_Tool:any = undefined;
 }

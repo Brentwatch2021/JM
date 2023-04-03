@@ -1,8 +1,60 @@
 <div *ngIf="isJobShow">
         <div>
+            <label for="Technician">Technician: </label>
+            <select name="TechnicianSelect" id="TechnicianSelect"
+                (change)="handleTechnicianSelection($event)"    
+            >
+                <option value="0">None</option>
+                <option *ngFor="let user of jmUsers" [value]="user.id">
+                    {{ user.name }} {{ user.lastName }}
+                </option>
+            </select>
+        </div>
+        <div>
             <label for="jobActivity">Activity: </label>
             <input type="text" name="jobActivity" (change)="handlejobActivityChange($event)" [value]="jmJobToEdit ? jmJobToEdit.activity : ''">
         </div>
+
+        <!-- A list of all the tools -->
+        <div>
+            <button (click)="handleToolSelection($event)">Select Tools</button>
+            <app-jm-tools-selection-form (handlejobToolsSave)="handlejobToolsSaveForm($event)" (handlejobToolsCancel)="handlejobToolsCancelForm()" [isSelectShow]="isSelectTools"></app-jm-tools-selection-form>
+            <div>
+                <div *ngFor="let selectedTool of jmTools" >
+                     {{ selectedTool.name }}
+                </div>
+            </div>
+            <!-- <div *ngIf="isSelectTools">
+                 <div *ngFor="let tool of jmTools" class="tools-list">
+                    
+                        
+                        <div class="toolCard">
+                            <input type="checkbox">    {{tool.name}} {{tool.tool_Image_Path}}
+                        </div>
+                        
+                    
+                    
+                </div> 
+            </div> -->
+        </div>
+        <!-- The list of tasks -->
+        <div>
+            <button (click)="handleAddTask()">Add Task</button>
+            <app-jm-job-tasks-form (handleTaskJobSave)="handleTaskSave($event)" (handleTaskJobCancel)="handleTaskCancel()" [isJobTasksShow]="isAddTask"></app-jm-job-tasks-form>
+            <div>
+                <p *ngFor="let task of jmTasks">
+                    {{task}}
+                </p>
+            </div>
+        </div>
+
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+
     <button (click)="handleJobSave()">Save</button>
     <button (click)="handleJobCancel()">Cancel</button>
 </div>

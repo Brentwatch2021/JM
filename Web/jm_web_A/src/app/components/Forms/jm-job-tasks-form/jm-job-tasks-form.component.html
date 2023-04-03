@@ -1,0 +1,8 @@
+<div *ngIf="isJobTasksShow">
+    <div>
+        <label for="job-task">Task</label>
+        <input type="text" id="job-task" name="job-task" (change)="handleTaskChange($event)">
+    </div>
+<button (click)="handleTaskCancel()">Cancel</button>
+<button (click)="handleTaskSave()" >Save</button>
+</div>

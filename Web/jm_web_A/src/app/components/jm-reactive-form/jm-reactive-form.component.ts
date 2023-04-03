@@ -35,6 +35,9 @@ export class JMReactiveFormComponent {
 
     // JOBS BAD Implementation
     this.route = this.router.url.includes('jobs') ? 'jobs' : this.route;
+
+    // VEHICLES BAD Implementation
+    this.route = this.router.url.includes('vehicles') ? 'vehicles' : this.route;
   }
 
   selectForm()

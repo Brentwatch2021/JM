@@ -12,6 +12,10 @@
             </option>
         </select>
     </div>
+    <div>
+        <label for="ToolImage">Photo Of Tool</label>
+        <input type="file" (change)="handleFileUpload($event)" name="ToolImage">
+    </div>
     <button (click)="handleToolSave()">Save</button>
     <button (click)="handleToolCancel()">Cancel</button>
 </div>
