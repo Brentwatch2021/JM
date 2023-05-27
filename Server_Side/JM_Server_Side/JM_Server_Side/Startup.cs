@@ -67,9 +67,9 @@ namespace JM_Server_Side
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions()
             {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),@"UserUploadedData")),
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"UserUploadedData")),
                 RequestPath = new PathString("/UserUploadedData")
-            });;
+            });
 
             app.UseCors("CorsPolicy");
 

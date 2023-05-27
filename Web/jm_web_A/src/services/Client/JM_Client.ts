@@ -1,6 +1,6 @@
 export class JM_Client
 {
-    id:Number = 0;
+    id:number = 0;
     name:string = "";
     location:string = "";
     html_JobCard_Template:string = "";

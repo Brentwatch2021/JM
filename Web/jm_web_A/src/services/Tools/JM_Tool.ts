@@ -1,10 +1,10 @@
 export class JM_Tool
 {
-    Id:Number = 0;
+    Id:number = 0;
     Name:string = "";
     CheckedInOutStatus:boolean = false;
     History:string = "";
-    AssignedTo:Number = 0;
+    AssignedTo:number = 0;
     Tool_Image_Path:string = "";
     tool_Image_MIME_Type:string = "";
     Image_Of_Tool:any = undefined;

@@ -39,7 +39,7 @@ export class JobsApiService {
     }
   }
 
-  GetJob(id:Number):Observable<JM_Job>
+  GetJob(id:number):Observable<JM_Job>
   {
     if(id > 0)
     {
@@ -53,7 +53,7 @@ export class JobsApiService {
     return this.http.get<JM_Job>(`${this.rootAPILinks.rootAPI}/api/JM_Job`);
   }
 
-  DeleteJob(id:Number):Observable<JM_Job>
+  DeleteJob(id:number):Observable<JM_Job>
   {
     if(id > 0)
     {

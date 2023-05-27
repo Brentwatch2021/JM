@@ -16,7 +16,7 @@ export class ToolsAPIService {
     return this.http.get<JM_Tool>(`${this.rootAPILinks.rootAPI}/api/JM_Tool`);
   }
 
-  GetJMTool(id:Number):Observable<JM_Tool>
+  GetJMTool(id:number):Observable<JM_Tool>
   {
     return this.http.get<JM_Tool>(`${this.rootAPILinks.rootAPI}/api/JM_Tool/${id}`);
   }
@@ -26,7 +26,7 @@ export class ToolsAPIService {
     this.http.put(`${this.rootAPILinks.rootAPI}/api/JM_Tool/${jmToolToEdit.id}`,jmToolToEdit).subscribe((resp:any) => alert("Tool Updated"));
   }
 
-  DeleteJMTool(id:Number):Observable<JM_Tool>
+  DeleteJMTool(id:number):Observable<JM_Tool>
   {
     return this.http.delete<JM_Tool>(`${this.rootAPILinks.rootAPI}/api/JM_Tool/${id}`);
   }

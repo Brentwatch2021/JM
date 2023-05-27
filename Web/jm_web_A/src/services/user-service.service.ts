@@ -66,8 +66,7 @@ export class UserServiceService {
       
 
       
-      // SOME KIND OF FUCKED UP INCONSISTENT ISSUE WHERE IT POSTS TO the browser params and losing context on server
-      // side with regards to the Form Data been processed move the fuck on 
+      
       //return this.http.post<JM_User>('http://localhost:22537/api/JM_User',userFormData,{ headers : new HttpHeaders() });
       //this.http.post('http://localhost:22537/api/JM_User',user,{ headers : header }).subscribe(() => alert("User Created"));
       //this.http.post('http://localhost:22537/api/JM_User',user,{ headers :header }).subscribe((response) => alert("user created"));
@@ -79,7 +78,7 @@ export class UserServiceService {
         //   }
         // }
       //);
-      // this is causing an issue where the data resides in the url
+      
       //return this.http.post<JM_User>('http://localhost:22537/api/JM_User',userFormData,{ headers : new HttpHeaders() });
       
     //}

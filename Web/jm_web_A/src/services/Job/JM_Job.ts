@@ -1,6 +1,6 @@
 export class JM_Job
 {
-     id:Number = 0;
+     id:number = 0;
      technician:string = "";
      activity:string = "";
      taskList:string = "";
@@ -9,5 +9,5 @@ export class JM_Job
      status:string = "";
      payslips:string = "";
      vehicles:string = "";
-     client_ID:Number = 0;
+     client_ID:number = 0;
 }

@@ -37,12 +37,12 @@ export class VehiclesAPIService {
     this.http.put(`${this.rootAPILinks.rootAPI}/api/JM_Vehicle/${jm_Vehicle.id}`,jm_Vehicle).subscribe(resp => console.log(resp));
   }
 
-  Delete_Vehicle(id:Number):Observable<JM_Vehicle>
+  Delete_Vehicle(id:number):Observable<JM_Vehicle>
   {
     return this.http.delete<JM_Vehicle>(`${this.rootAPILinks.rootAPI}/api/JM_Vehicle/${id}`);
   }
 
-  Load_Vehicle(id:Number):Observable<JM_Vehicle>
+  Load_Vehicle(id:number):Observable<JM_Vehicle>
   {
     return this.http.get<JM_Vehicle>(`${this.rootAPILinks.rootAPI}/api/JM_Vehicle/${id}`);
   }

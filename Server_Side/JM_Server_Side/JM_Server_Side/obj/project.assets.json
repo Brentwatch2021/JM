@@ -8932,19 +8932,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Brent\\.nuget\\packages\\": {}
+    "C:\\Users\\Darren Master\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Backup\\Job Manager Full Stack Application Source\\Source\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\JM_Server_Side.csproj",
+      "projectUniqueName": "C:\\Brent Becker 27_05_2023 Software\\Job Card App\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\JM_Server_Side.csproj",
       "projectName": "JM_Server_Side",
-      "projectPath": "C:\\Backup\\Job Manager Full Stack Application Source\\Source\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\JM_Server_Side.csproj",
-      "packagesPath": "C:\\Users\\Brent\\.nuget\\packages\\",
-      "outputPath": "C:\\Backup\\Job Manager Full Stack Application Source\\Source\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\obj\\",
+      "projectPath": "C:\\Brent Becker 27_05_2023 Software\\Job Card App\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\JM_Server_Side.csproj",
+      "packagesPath": "C:\\Users\\Darren Master\\.nuget\\packages\\",
+      "outputPath": "C:\\Brent Becker 27_05_2023 Software\\Job Card App\\JM\\Server_Side\\JM_Server_Side\\JM_Server_Side\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Brent\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Darren Master\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8952,6 +8952,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9016,7 +9017,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

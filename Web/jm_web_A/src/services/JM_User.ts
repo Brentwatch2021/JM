@@ -1,5 +1,5 @@
 export class JM_User {
-    id:Number = 0;
+    id:number = 0;
     name:string = "";
     lastName:string = "";
     Email:string = "";

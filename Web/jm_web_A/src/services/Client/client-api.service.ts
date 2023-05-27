@@ -11,7 +11,7 @@ export class ClientApiService {
 
   constructor(private http:HttpClient,private rootAPILinks:RootAPILinks) { }
 
-  DeleteClient(id:Number):Observable<JM_Client>
+  DeleteClient(id:number):Observable<JM_Client>
   {
     return this.http.delete<JM_Client>(`${this.rootAPILinks.rootAPI}/api/JM_Client/${id}`);
   }
@@ -22,7 +22,7 @@ export class ClientApiService {
     this.http.put(`${this.rootAPILinks.rootAPI}/api/JM_Client/${jmclientToEdit.id}`,jmclientToEdit).subscribe((resp:any) => alert("Client Updated"));
   }
 
-  GetClient(id:Number):Observable<JM_Client>
+  GetClient(id:number):Observable<JM_Client>
   {
     return this.http.get<JM_Client>(`${this.rootAPILinks.rootAPI}/api/JM_Client/${id}`);
   }
