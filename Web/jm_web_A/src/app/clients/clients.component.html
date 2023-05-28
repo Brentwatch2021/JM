@@ -1,4 +1,4 @@
-<p>Clients</p>
+<!-- <p>Clients</p>
 
 <app-jm-reactive-form (handleSectionPageRefresh)="handlePageRefresh()"></app-jm-reactive-form>
 
@@ -10,4 +10,59 @@
             <p>{{client.location}}</p>
         </a>
     </div>
+</div> -->
+
+
+<div class="container pt-5">
+    <div class="row-12">
+            <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <p class="d-flex justify-content-end"> Clients  </p> 
+          </div>
+          <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <app-jm-reactive-form ></app-jm-reactive-form>
+          </div>
+          <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="container">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Location
+                    </th>
+                    <th>
+                        View
+                    </th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="jmClients">
+                  <tr *ngFor="let jmClient of jmClients">
+                      <td>{{ jmClient.name }}</td>
+                      <td>{{ jmClient.location }}</td>
+                      <td><a [routerLink]="['/clients', jmClient.id]">
+                        <i class="material-icons">
+                                visibility
+                                </i>
+                        </a></td>
+                  </tr>
+                  
+                </tbody>
+              </table> 
+            </div>
+          </div>
+    </div>
 </div>
+
+
+
+        
+
+
+
+
+

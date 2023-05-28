@@ -1,20 +1,88 @@
-<p>Users</p>
+<!-- <p>Users</p>
 
 <app-jm-reactive-form (handleSectionPageRefresh)="PageRefresh()"></app-jm-reactive-form>
 
 <div class="vertical-list-container">
     <div *ngFor="let jmuser of jmUsers">
-        <!-- <a [routerLink]="['/users/']" [queryParams]="{userId:jmuser.id}"> -->
+         <a [routerLink]="['/users/']" [queryParams]="{userId:jmuser.id}"> 
             <a [routerLink]="['/users', jmuser.id]">
             <div class="vertical-list-item">
                 <p style="display: none;">{{jmuser.id}}</p>
                 <h1>{{ jmuser.name + " " + jmuser.lastName }}</h1>  
                 <h2>Email: {{ jmuser.email }}</h2>
                 <img class="user-profile-avatar" [src]="'http://localhost:22537/' + jmuser.profilePhotoURL" alt="">
-                <!-- <button (click)="handleItemEdit()">Edit</button> -->
-                <!-- <button>Remove</button> -->
-             </div>
+                <button (click)="handleItemEdit()">Edit</button> 
+                 <button>Remove</button>             </div>
         </a>
-        <!-- <div *ngIf="isItemEdit">The editable form</div> -->
+         <div *ngIf="isItemEdit">The editable form</div> 
+    </div>
+</div> -->
+
+<!-- <p>Vehicles</p>
+
+<app-jm-reactive-form></app-jm-reactive-form>
+
+<div *ngFor="let JM_Vehicle of jmVehicles">
+    <a [routerLink]="['/vehicles', JM_Vehicle.id]">
+        <p>{{ JM_Vehicle.name }}</p>
+    </a>
+</div> -->
+
+
+
+
+<!-- <div *ngFor="let tool of tools">
+    <a [routerLink]="['/tools', tool.id]">
+        <h1>Name: {{tool.name}}</h1>
+    </a>
+</div> -->
+
+<div class="container pt-5">
+    <div class="row-12">
+            <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <p class="d-flex justify-content-end"> Users  </p> 
+          </div>
+          <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <app-jm-reactive-form ></app-jm-reactive-form>
+          </div>
+          <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="container">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        View
+                    </th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="jmUsers">
+                  <tr *ngFor="let user of jmUsers">
+                      <td>{{ user.name }}</td>
+                      <td>{{ user.lastName }}</td>
+                      <td>{{ user.email }}</td>
+                      <td><a [routerLink]="['/users', user.id]">
+                        <i class="material-icons">
+                            visibility
+                            </i>
+                    </a></td>
+                  </tr>
+                </tbody>
+              </table> 
+            </div>
+          </div>
     </div>
 </div>
+
+

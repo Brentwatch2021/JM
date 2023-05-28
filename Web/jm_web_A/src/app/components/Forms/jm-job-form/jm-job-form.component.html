@@ -1,19 +1,23 @@
 <div *ngIf="isJobShow">
-        <div>
-            <label for="Technician">Technician: </label>
-            <select name="TechnicianSelect" id="TechnicianSelect"
-                (change)="handleTechnicianSelection($event)"    
-            >
-                <option value="0">None</option>
-                <option *ngFor="let user of jmUsers" [value]="user.id">
-                    {{ user.name }} {{ user.lastName }}
-                </option>
-            </select>
+        <!-- Technician Control -->
+        <div class="d-flex flex-row justify-content-around">
+            <div>
+                <label for="Technician">Technician: </label>
+                <select name="TechnicianSelect" id="TechnicianSelect"
+                    (change)="handleTechnicianSelection($event)"    
+                >
+                    <option value="0">None</option>
+                    <option *ngFor="let user of jmUsers" [value]="user.id">
+                        {{ user.name }} {{ user.lastName }}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <label for="jobActivity">Activity: </label>
+                <input type="text" name="jobActivity" (change)="handlejobActivityChange($event)" [value]="jmJobToEdit ? jmJobToEdit.activity : ''">
+            </div>
         </div>
-        <div>
-            <label for="jobActivity">Activity: </label>
-            <input type="text" name="jobActivity" (change)="handlejobActivityChange($event)" [value]="jmJobToEdit ? jmJobToEdit.activity : ''">
-        </div>
+        
 
         <!-- A list of all the tools -->
         <div>
@@ -54,9 +58,14 @@
         <br>
         <br>
         <br>
-
-    <button (click)="handleJobSave()">Save</button>
-    <button (click)="handleJobCancel()">Cancel</button>
+    <div class="d-flex flex-row justify-content-end">
+        <div class="container col-5 ">
+            <button class="btn btn-primary m-3" (click)="handleJobSave()">Save</button>
+            <button class="btn btn-primary m-3" (click)="handleJobCancel()">Cancel</button>
+        </div>
+        
+    </div>
+    
 </div>
 
 <div *ngIf="jmJobToEdit">

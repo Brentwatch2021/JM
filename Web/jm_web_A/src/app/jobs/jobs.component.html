@@ -1,10 +1,56 @@
-<p>Jobs</p>
-<app-jm-reactive-form ></app-jm-reactive-form>
 
-<div *ngIf="jmJobs">
+<div class="container pt-5">
+    <div class="row-12">
+            <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <p class="d-flex justify-content-end"> Jobs  </p> 
+          </div>
+          <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <app-jm-reactive-form ></app-jm-reactive-form>
+          </div>
+          <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="container">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>
+                      Technician
+                    </th>
+                    <th>
+                      Activity
+                    </th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="jmJobs">
+                  <tr *ngFor="let job of jmJobs">
+                    
+                      <td>{{ job.technician }}</td>
+                      <td>{{ job.activity }}</td>
+                      <td><a [routerLink]="['/jobs', job.id]">
+                        <i class="material-icons">
+                                visibility
+                                </i>
+                        </a></td>
+                  </tr>
+                </tbody>
+              </table> 
+            </div>
+          </div>
+    </div>
+</div>
+
+
+
+        
+
+
+
+<!-- <div *ngIf="jmJobs">
     <div *ngFor="let job of jmJobs">
         <a [routerLink]="['/jobs', job.id]">
             <h1>Activity: {{job.activity}}</h1>
         </a>
     </div>
-</div>
+</div> -->

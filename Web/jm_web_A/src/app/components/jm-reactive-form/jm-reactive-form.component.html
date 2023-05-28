@@ -1,5 +1,7 @@
-<div class="JM-Reactive-Form">
-    <button (click)="selectForm()">{{ itemToEdit ? 'Edit' : 'Create'}}</button>
+<div>
+    
+    <button class="btn btn-primary d-flex justify-content-start m-3" (click)="selectForm()">{{ itemToEdit ? 'Edit' : 'Create'}}</button>
+
     <!-- A switch for all the different form types User, Tools , Jobs Ect -->
     <div [ngSwitch]="route">
         <app-jm-user-form [isUserShow]="isShow" (handleSave)="handleFormSave()" [userToEdit]="itemToEdit" (handleCancel)="handleFormCancel()" *ngSwitchCase="'users'"></app-jm-user-form>

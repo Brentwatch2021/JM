@@ -1,7 +1,7 @@
 <!-- <p>header works!</p> -->
 <!-- <button type="button" class="btn btn-success">Header</button> -->
 
-<header>
+<header class="sticky-header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" [routerLink]="['/']"><i class="material-icons">token</i></a>
@@ -25,6 +25,10 @@
             <li class="nav-item">
                 <a title="Vehicles" alt="Vehicles" class="nav-link" [routerLink]="['/vehicles']"><i class="material-icons">local_shipping</i> Vehicles</a>
             </li>
+            <li class="nav-item">
+              <a title="Users" alt="Users" class="nav-link" [routerLink]="['/users']"><i class="material-icons">group</i> Users</a>
+          </li>
+            
             <li class="nav-item">
                 <a title="Settings" alt="Settings" class="nav-link" [routerLink]="['/current_user_settings']"><i class="material-icons">settings</i> Settings</a>
             </li>

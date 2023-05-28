@@ -1,4 +1,4 @@
-<p>Vehicles</p>
+<!-- <p>Vehicles</p>
 
 <app-jm-reactive-form></app-jm-reactive-form>
 
@@ -6,4 +6,66 @@
     <a [routerLink]="['/vehicles', JM_Vehicle.id]">
         <p>{{ JM_Vehicle.name }}</p>
     </a>
+</div> -->
+
+
+
+
+<!-- <div *ngFor="let tool of tools">
+    <a [routerLink]="['/tools', tool.id]">
+        <h1>Name: {{tool.name}}</h1>
+    </a>
+</div> -->
+
+<div class="container pt-5">
+    <div class="row-12">
+            <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <p class="d-flex justify-content-end"> Vehicles  </p> 
+          </div>
+          <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <app-jm-reactive-form ></app-jm-reactive-form>
+          </div>
+          <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="container">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Registeraton Number
+                    </th>
+                    <th>
+                        Milaege
+                    </th>
+                    <th>
+                        Checked Out
+                    </th>
+                    <th>
+                        View
+                    </th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="jmVehicles">
+                  <tr *ngFor="let JM_Vehicle of jmVehicles">
+                      <td>{{ JM_Vehicle.name }}</td>
+                      <td>{{ JM_Vehicle.regNumber }}</td>
+                      <td>{{ JM_Vehicle.kms }}</td>
+                      <td>{{ JM_Vehicle.checkedInOutStatus }}</td>
+                      <td><a [routerLink]="['/vehicles', JM_Vehicle.id]">
+                        <i class="material-icons">
+                                visibility
+                                </i>
+                        </a></td>
+                  </tr>
+                </tbody>
+              </table> 
+            </div>
+          </div>
+    </div>
 </div>
+

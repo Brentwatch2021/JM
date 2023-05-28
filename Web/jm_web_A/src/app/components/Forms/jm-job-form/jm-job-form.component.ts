@@ -118,12 +118,12 @@ export class JmJobFormComponent implements OnInit {
     // toolsUsed:string = "";
 
     // Remember about edits
-    this.jmTools.forEach((tool:any) => {
-      this.jm_Job.toolsUsed += " ID: " + tool.id;
-    })
-    this.jmTasks.forEach(task => {
-      this.jm_Job.taskList += " Task: " + task;
-    })
+    // this.jmTools.forEach((tool:any) => {
+    //   this.jm_Job.toolsUsed += " ID: " + tool.id;
+    // })
+    // this.jmTasks.forEach(task => {
+    //   this.jm_Job.taskList += " Task: " + task;
+    // })
 
     this.jobAPI.SaveJob(this.jm_Job)
     .subscribe(
