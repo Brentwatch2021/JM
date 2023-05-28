@@ -29,6 +29,7 @@ import { VehicleDetailsComponent } from './vehicles/vehicle-details/vehicle-deta
 import { JmToolsSelectionFormComponent } from './components/Forms/jm-tools-selection-form/jm-tools-selection-form.component';
 import { FormsModule } from '@angular/forms';
 import { JmJobTasksFormComponent } from './components/Forms/jm-job-tasks-form/jm-job-tasks-form.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { JmJobTasksFormComponent } from './components/Forms/jm-job-tasks-form/jm
     JmVehicleFormComponent,
     VehicleDetailsComponent,
     JmToolsSelectionFormComponent,
-    JmJobTasksFormComponent
+    JmJobTasksFormComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

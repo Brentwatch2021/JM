@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input,Output } from '@angular/core';
+import { Component, EventEmitter, Input,OnInit,Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/services/user-service.service';
 
@@ -7,7 +7,7 @@ import { UserServiceService } from 'src/services/user-service.service';
   templateUrl: './jm-reactive-form.component.html',
   styleUrls: ['./jm-reactive-form.component.css']
 })
-export class JMReactiveFormComponent {
+export class JMReactiveFormComponent implements OnInit {
 
   route!:string;
 
@@ -38,6 +38,10 @@ export class JMReactiveFormComponent {
 
     // VEHICLES BAD Implementation
     this.route = this.router.url.includes('vehicles') ? 'vehicles' : this.route;
+  }
+  
+  ngOnInit(): void {
+    
   }
 
   selectForm()

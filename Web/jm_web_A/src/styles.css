@@ -70,14 +70,15 @@
   }
   
   /* Button */
-  .button, button {
+
+  /* .button, button {
     display: inline-flex;
     align-items: center;
     padding: 8px 16px;
     border-radius: 2px;
     font-size: 14px;
     cursor: pointer;
-    background-color: #1976d2;
+    background-color: aliceblue;
     color: white;
     border: none;
   }
@@ -90,7 +91,7 @@
   .button:disabled, button:disabled {
     opacity: 0.5;
     cursor: auto;
-  }
+  } */
   
   /* Fancy Button */
   
