@@ -1,7 +1,34 @@
-<p>Job</p>
+<div class="container pt-5">
+    <div class="row-12">
+            <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <p class="d-flex justify-content-end"> Job  </p> 
+          </div>
+          <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <h1 *ngIf="jm_Job">
+                The jobs activity that will be conducted is: {{ jm_Job.activity}}
+            </h1>
+          </div>
+          <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="container">
+                <app-jm-reactive-form *ngIf="jm_Job" [itemToEdit]="jm_Job"></app-jm-reactive-form>
+            </div>
+          </div>
+    </div>
+</div>
 
-<h1 *ngIf="jm_Job">
-    The jobs activity that will be conducted is: {{ jm_Job.activity}}
-</h1>
 
-<app-jm-reactive-form *ngIf="jm_Job" [itemToEdit]="jm_Job"></app-jm-reactive-form>
+
+        
+
+
+
+<!-- <div *ngIf="jmJobs">
+    <div *ngFor="let job of jmJobs">
+        <a [routerLink]="['/jobs', job.id]">
+            <h1>Activity: {{job.activity}}</h1>
+        </a>
+    </div>
+</div> -->

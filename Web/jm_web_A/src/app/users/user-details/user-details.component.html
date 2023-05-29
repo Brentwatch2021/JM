@@ -1,14 +1,26 @@
-<p *ngIf="jmUserDetails">First Name {{ jmUserDetails.name }} Surname {{ jmUserDetails.lastName }}</p>
-<img src="" alt="">
+<div class="container pt-5">
+    <div class="row-12">
+            <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <p class="d-flex justify-content-end"> User  </p> 
+          </div>
+          <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <p *ngIf="jmUserDetails">First Name {{ jmUserDetails.name }} Surname {{ jmUserDetails.lastName }}</p>
+          </div>
+          <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="container">
+                <app-jm-reactive-form *ngIf="jmUserDetails" [itemToEdit]="jmUserDetails"></app-jm-reactive-form>
+            </div>
+          </div>
+          <br>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="d-flex justify-content-end">
+                <button (click)="GoBack()">Back</button>
+            </div>
+          </div>
+    </div>
+</div>
 
-
-
-
-
-
-<app-jm-reactive-form *ngIf="jmUserDetails" [itemToEdit]="jmUserDetails"></app-jm-reactive-form>
-
-
-
-<button (click)="GoBack()">Back</button>
 

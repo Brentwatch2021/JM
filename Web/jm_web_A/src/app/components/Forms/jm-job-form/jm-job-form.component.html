@@ -20,15 +20,15 @@
         
 
         <!-- A list of all the tools -->
-        <div>
-            <button (click)="handleToolSelection($event)">Select Tools</button>
+        <!-- <div>
+             <button (click)="handleToolSelection($event)">Select Tools</button> 
             <app-jm-tools-selection-form (handlejobToolsSave)="handlejobToolsSaveForm($event)" (handlejobToolsCancel)="handlejobToolsCancelForm()" [isSelectShow]="isSelectTools"></app-jm-tools-selection-form>
             <div>
                 <div *ngFor="let selectedTool of jmTools" >
                      {{ selectedTool.name }}
                 </div>
             </div>
-            <!-- <div *ngIf="isSelectTools">
+             <div *ngIf="isSelectTools">
                  <div *ngFor="let tool of jmTools" class="tools-list">
                     
                         
@@ -39,9 +39,9 @@
                     
                     
                 </div> 
-            </div> -->
+            </div> 
         </div>
-        <!-- The list of tasks -->
+        
         <div>
             <button (click)="handleAddTask()">Add Task</button>
             <app-jm-job-tasks-form (handleTaskJobSave)="handleTaskSave($event)" (handleTaskJobCancel)="handleTaskCancel()" [isJobTasksShow]="isAddTask"></app-jm-job-tasks-form>
@@ -50,16 +50,16 @@
                     {{task}}
                 </p>
             </div>
-        </div>
+        </div> -->
 
 
 
+        <!-- <br>
         <br>
         <br>
-        <br>
-        <br>
+        <br> -->
     <div class="d-flex flex-row justify-content-end">
-        <div class="container col-5 ">
+        <div class="container col-6">
             <button class="btn btn-primary m-3" (click)="handleJobSave()">Save</button>
             <button class="btn btn-primary m-3" (click)="handleJobCancel()">Cancel</button>
         </div>
@@ -68,6 +68,6 @@
     
 </div>
 
-<div *ngIf="jmJobToEdit">
-    <button (click)="HandleJobRemove()" >Delete</button>
+<div class="d-flex justify-content-end" *ngIf="jmJobToEdit">
+    <button class="btn btn-danger" (click)="HandleJobRemove()" >Delete</button>
 </div>

@@ -1,14 +1,31 @@
 <form *ngIf="isClientShow">
-    <div>
-        <label for="clientName">Client Name</label>
-        <input type="text" (change)="handleClientNameChange($event)" name="clientName" [value]="clientToEdit ? clientToEdit.name : ''">
+    <div class="d-flex flex-row justify-content-around">
+        <div>
+            <label for="clientName">Client Name</label>
+            <input type="text" (change)="handleClientNameChange($event)" name="clientName" [value]="clientToEdit ? clientToEdit.name : ''">
+        </div>
+        <div>
+            <label for="clientLocation">Client Location</label>
+            <input type="text" (change)="handleClientLocationChange($event)" name="clientLocation" [value]="clientToEdit ? clientToEdit.location : ''">
+        </div>
     </div>
-    <div>
-        <label for="clientLocation">Client Location</label>
-        <input type="text" (change)="handleClientLocationChange($event)" name="clientLocation" [value]="clientToEdit ? clientToEdit.location : ''">
+    
+    <br>
+    <br><br>
+    <div class="d-flex flex-row justify-content-end">
+        <div class="container col-6">
+            <button class="btn btn-primary m-3" (click)="handleClientSave()">Save</button>
+            <button class="btn btn-primary m-3" (click)="handleClientCancel()">Cancel</button>
+        </div>
     </div>
-    <button (click)="handleClientSave()">Save</button>
-    <button (click)="handleClientCancel()">Cancel</button>
+    
 </form>
 
 <button *ngIf="clientToEdit" (click)="HandleClientDelete()">Delete</button>
+
+
+
+
+<!-- <div class="d-flex justify-content-end" *ngIf="jmJobToEdit">
+<button class="btn btn-danger" (click)="HandleJobRemove()" >Delete</button>
+</div> -->

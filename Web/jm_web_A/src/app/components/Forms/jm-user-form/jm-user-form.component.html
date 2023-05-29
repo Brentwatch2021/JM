@@ -1,24 +1,37 @@
 
 
 <form *ngIf="isUserShow">
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" (change)="handleNameChange($event)" name="name" [value]="userToEdit ? userToEdit.name : ''" >
+    <div class="d-flex flex-row justify-content-around">
+        <div class="m-3">
+            <label for="name">Name:</label>
+            <input type="text" (change)="handleNameChange($event)" name="name" [value]="userToEdit ? userToEdit.name : ''" >
+        </div>
+        <div class="m-3">
+            <label for="lastname">Last Name:</label>
+            <input type="text" (change)="handleLastNameChange($event)" name="lastname" [value]="userToEdit ? userToEdit.lastName : ''" >
+        </div>
     </div>
-    <div>
-        <label for="lastname">Last Name:</label>
-        <input type="text" (change)="handleLastNameChange($event)" name="lastname" [value]="userToEdit ? userToEdit.lastName : ''" >
+    <br>
+    <br>
+    <hr>
+    <div class="d-flex flex-row justify-content-around">
+        <div class="m-3">
+            <label for="Email">Email:</label>
+            <input type="email" (change)="handleEmailChange($event)" name="Email" [value]="userToEdit ? userToEdit.email : ''">
+        </div>
+        <div class="m-4">
+            <label for="myProfilePhoto">Profile Photo:</label>
+            <input type="file" (change)="handleFileInput($event)" name="myProfilePhoto">
+        </div>
     </div>
-    <div>
-        <label for="Email">Email:</label>
-        <input type="email" (change)="handleEmailChange($event)" name="Email" [value]="userToEdit ? userToEdit.email : ''">
+    <br>
+    <br>
+    <hr>
+    <div class="d-flex flex-row justify-content-around">
+        <button class="btn btn-primary m-3" (click)="handleUserCancel()">Cancel</button>
+        <button class="btn btn-primary m-3" (click)="handleUserSave($event)">Save</button>
     </div>
-    <div>
-        <label for="myProfilePhoto">Profile Photo:</label>
-        <input type="file" (change)="handleFileInput($event)" name="myProfilePhoto">
-    </div>
-    <button (click)="handleUserCancel()">Cancel</button>
-    <button (click)="handleUserSave($event)">Save</button>
+    
 </form>
 
 <button *ngIf="userToEdit" (click)="handleUserDelete()">Delete</button>

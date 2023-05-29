@@ -1,1 +1,11 @@
-<p>current-user-settings works!</p>
+<div class="container pt-5">
+    <div class="d-flex flex-row justify-content-end">
+        <div class="m-5">
+            <label for="language">Language</label>
+            <select (change)="handleLangChange($event)" class="m-3" name="language" id="language">
+            <option value="Afrikaans">Afrikaans</option>
+            <option value="English">English</option>
+        </select>
+        </div>
+    </div>
+</div>

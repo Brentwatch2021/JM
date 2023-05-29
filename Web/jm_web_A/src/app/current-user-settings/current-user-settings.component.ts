@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class CurrentUserSettingsComponent {
 
+
+  handleLangChange(e:any)
+  {
+    const lang = e?.target?.value;
+    console.log("Howzit: " + lang);
+  }
 }
