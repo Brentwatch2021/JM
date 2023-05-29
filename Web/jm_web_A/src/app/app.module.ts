@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+// State Management
+import { StoreModule } from '@ngrx/store';
+//import { languageReducer } from 'src/state_management/app.reducer';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +33,7 @@ import { JmToolsSelectionFormComponent } from './components/Forms/jm-tools-selec
 import { FormsModule } from '@angular/forms';
 import { JmJobTasksFormComponent } from './components/Forms/jm-job-tasks-form/jm-job-tasks-form.component';
 import { HeaderComponent } from './components/header/header.component';
+import { appReducer } from './app.reducer';
 
 @NgModule({
   declarations: [
@@ -76,7 +80,8 @@ import { HeaderComponent } from './components/header/header.component';
       { path: 'users', component:UsersComponent },
       { path: 'users/:userId', component:UserDetailsComponent },
       { path: 'current_user_settings', component:CurrentUserSettingsComponent },
-    ])
+    ]),
+    StoreModule.forRoot({ app:appReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
